@@ -121,3 +121,38 @@
   }
 }
 
+/* ---- 在棋盘上滑动时不带动页面滚动 ----
+   原版没有处理触摸滚动，手机上滑方块会连页面一起滚 */
+.game-container {
+  touch-action: none;
+}
+
+/* ---- 手机上把知识点卡片改成贴屏幕底部的抽屉 ---- */
+@media screen and (max-width: 520px) {
+  .knowledge-card {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    width: auto;
+    margin: 0;
+    max-height: 38vh;
+    overflow-y: auto;
+    border-radius: 14px 14px 0 0;
+    border-left: none;
+    border-top: 3px solid #7fa87a;
+    box-shadow: 0 -3px 14px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 没合并过时整张收起，不挡视线 */
+  .knowledge-card:not(.is-visible) {
+    display: none;
+  }
+
+  /* 底部留白，避免页面最后的内容被抽屉压住 */
+  body {
+    padding-bottom: 40vh;
+  }
+}
+
