@@ -106,3 +106,18 @@
   white-space: nowrap;
 }
 
+/* ---- 手机屏幕适配 ----
+   原版 main.css 在窄屏会把方块缩到 58px（电脑上是 107px），
+   所以字号必须跟着变小，否则两个字装不下会折行 */
+@media screen and (max-width: 520px) {
+  .tile .tile-inner {
+    font-size: 24px !important;
+    letter-spacing: 0;
+  }
+
+  /* 标题同理：手机上不放ohydra那么大的标题 */
+  .heading h1.title {
+    font-size: 26px;
+  }
+}
+
