@@ -1,4 +1,32 @@
 # 2048
+
+## 教育版改造：《知识阶梯 2048》
+
+本改造在原版基础上做了一个**教育化改动**。需要说明的是：**游戏规则、棋盘算法、胜负判定完全沿用原版，一行未删改。**
+
+改造的内容是把 2→4→8→…→2048 这 11 个等级，映射成教师专业能力的 11 级进阶：
+
+| 等级 | 阶段 | 出处 |
+| --- | --- | --- |
+| 2 / 4 / 8 / 16 / 32 / 64 | 识记 → 理解 → 应用 → 分析 → 评价 → 创造 | 布卢姆认知目标分类学 |
+| 128 / 256 / 512 / 1024 / 2048 | 需求 → 设计 → 开发 → 实施 → 评估 | ADDIE 教学系统设计 |
+
+于是玩的过程不再只是凑数字：每合并一次，棋盘下方会弹出一张**知识点卡片**，讲清这一级对应的教学理论含义，以及再上一级会走到哪里。走到「评估」意味着走完了整个教学系统设计闭环。
+
+**改动清单：**
+
+| 文件 | 性质 | 说明 |
+| --- | --- | --- |
+| `js/knowledge.js` | 新增 | 11 级知识点数据与查询函数 |
+| `style/edu.css` | 新增 | 方块排版与知识点卡片样式（**未改动原版 main.css**） |
+| `js/html_actuator.js` | 修改 | 方块显示阶段名；新增卡片渲染逻辑 |
+| `js/game_manager.js` | 修改 | 记录并传递每次合并出的最高等级 |
+| `index.html` | 修改 | 引入新文件与卡片容器；中文文案 |
+
+---
+
+（以下为原版说明）
+
 A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone). 2048 was indirectly inspired by [Threes](https://asherv.com/threes/).
 
 Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
